@@ -1,0 +1,345 @@
+//Q1
+#include <stdio.h>
+int main(void) {
+	char choice;
+	printf("Are you sure to delete? [Y/y] / [N/n]: ");
+	scanf("%c", &choice);
+	switch(choice) {
+		case 'Y':
+			printf("Deleted successfully.");
+			break;
+			
+		case 'y':
+			printf("Deleted successfully.");
+			break;
+			
+		case 'N':
+			printf("Delete cancelled.");
+			break;
+			
+		case 'n':
+			printf("Delete cancelled.");
+			break;
+			
+		default:
+			printf("Choose the right option.");
+			break;
+		}
+	return 0;
+}
+
+
+//Q2
+#include <stdio.h>
+int main(void) {
+	char coffee;
+	int size;
+	float time = 0.0;
+	printf("COFFEE MACHINE\n");
+	printf("Enter the type of coffee you want. B for Black and W for White: ");
+	scanf(" %c", &coffee);
+	
+	
+	switch(coffee) {
+		case 'B':
+		case 'b': {
+			float putwater = 20, sugar = 20, mix1 = 25, addcoffee = 15, addmilk = 0, mix2 = 25;
+			time = putwater + sugar + mix1 + addcoffee + addmilk + mix2;
+			printf("Enter the size of coffee. 1 for single and 2 for double: ");
+			scanf("%d", &size);
+			if (size == 1) {
+				printf("Put Water = %.1f mins\n", putwater);
+				printf("Add Sugar = %.1f mins\n", sugar);
+				printf("Mix Well = %.1f mins\n", mix1);
+				printf("Add Coffee = %.1f mins\n", addcoffee);
+				printf("Add milk = %.1f mins\n", addmilk);
+				printf("Mix Well = %.1f mins\n", mix2);
+				
+			}
+			else if (size == 2) {
+				putwater = putwater * 1.5; 
+				sugar = sugar*1.5; 
+				mix1 = mix1*1.5;
+				addcoffee = addcoffee*1.5;
+				addmilk = addmilk*1.5;
+				mix2 = mix2*1.5;
+				time = putwater + sugar + mix1 + addcoffee + addmilk + mix2;
+				printf("Put Water = %.1f mins\n", putwater);
+				printf("Add Sugar = %.1f mins\n", sugar);
+				printf("Mix Well = %.1f mins\n", mix1);
+				printf("Add Coffee = %.1f mins\n", addcoffee);
+				printf("Add milk = %.1f mins\n", addmilk);
+				printf("Mix Well = %.1f mins\n", mix2);
+			}
+			else {
+				printf("Invalid option.");
+				return 0;
+			}
+		break;
+	}
+		case 'W':
+		case 'w': {
+			float putwater = 15, sugar = 15, mix1 = 20, addcoffee = 2, addmilk = 4, mix2 = 20;
+			time = putwater + sugar + mix1 + addcoffee + addmilk + mix2;
+			printf("Enter the size of coffee. 1 for single and 2 for double: ");
+			scanf("%d", &size);
+			if (size == 1) {
+				printf("Put Water = %.1f mins\n", putwater);
+				printf("Add Sugar = %.1f mins\n", sugar);
+				printf("Mix Well = %.1f mins\n", mix1);
+				printf("Add Coffee = %.1f mins\n", addcoffee);
+				printf("Add milk = %.1f mins\n", addmilk);
+				printf("Mix Well = %.1f mins\n", mix2);
+				
+			}
+			else if (size == 2) {
+				putwater = putwater * 1.5; 
+				sugar = sugar*1.5; 
+				mix1 = mix1*1.5;
+				addcoffee = addcoffee*1.5;
+				addmilk = addmilk*1.5;
+				mix2 = mix2*1.5;
+				time = putwater + sugar + mix1 + addcoffee + addmilk + mix2;
+				printf("Put Water = %.1f mins\n", putwater);
+				printf("Add Sugar = %.1f mins\n", sugar);
+				printf("Mix Well = %.1f mins\n", mix1);
+				printf("Add Coffee = %.1f mins\n", addcoffee);
+				printf("Add milk = %.1f mins\n", addmilk);
+				printf("Mix Well = %.1f mins\n", mix2);
+		}
+			else {
+				printf("Invalid option.\n");
+				return 0;
+			}
+		break;
+}
+		default:
+			printf("Invalid option.\n");
+			return 0;
+	}
+	printf("Total time = %.1f mins\n", time);
+	return 0;
+}
+
+
+/Q3
+#include <stdio.h>
+int main(void) {
+	float nts_marks, fsc_marks;
+	printf("Enter fsc marks: ");
+	scanf("%f", &fsc_marks);
+	printf("Enter nts marks: ");
+	scanf("%f", &nts_marks);
+	if (fsc_marks > 70) {
+		if (nts_marks >= 70) {
+			printf("You'll be allocated a seat in IT department at Oxford University.");
+		}
+		else if (nts_marks >= 60) {
+			printf("You'll be allocated a seat in electronics department at Oxford University.");
+		}
+		else if (nts_marks >= 50) {
+			printf("You'll be allocated a seat in telecommunications department at Oxford University.");
+		}
+		else {
+			printf("Not eligible for Oxford University.\n");
+		}
+	}
+	else if (nts_marks >= 50) {
+		if (fsc_marks >= 60 && fsc_marks <= 70) {
+			printf("You'll be allocated a seat in IT department at MIT.");
+		}
+		else if (fsc_marks >= 50 && fsc_marks <= 59) {
+			printf("You'll be allocated a seat in chemical department at MIT.");
+		}
+		else if (fsc_marks >= 40 && fsc_marks <= 50) {
+			printf("You'll be allocated a seat in computer department at MIT.");
+		}
+		else {
+			printf("Not eligible for MIT.\n");
+		}
+	}
+	else {
+		printf("Not eligible for any program.\n");
+	}
+	return 0;
+}
+
+
+//Q4
+#include <stdio.h>
+int main(void) {
+	char menu;
+	int amount, total = 0,i, quantity, cost;
+	printf("Please select from the following menu:\nB= Burger (Rs.200)\nF= French fries (Rs.50)\nP= Pizza (Rs.500)\nS= Sandwiches (Rs.150)\n");
+	printf("How many snacks you need to order? ");
+	scanf("%d", &amount);
+	if (amount < 1 || amount > 4) {
+	    printf("You can only order between 1 and 4 types of snacks.\n");
+	    return 0;
+	} else {
+		printf("Enter first snack you want to order:  ");
+		scanf(" %c", &menu);
+		switch(menu) {
+				case 'B':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 200 * quantity;
+					total += cost;
+					printf("%d Burger (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'F':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 50 * quantity;
+					total += cost;
+					printf("%d French fries (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'P':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 500 * quantity;
+					total += cost;
+					printf("%d Pizza (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'S':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 150 * quantity;
+					total += cost;
+					printf("%d Sandwich (es) value %d pkr.\n", quantity, cost);
+					break;
+					
+				default:
+					printf("Invalid option.\n");
+					break;
+			}
+		if (amount >= 2) {
+			printf("Enter the second snack you want to order: ");
+			scanf(" %c", &menu);
+			switch(menu) {
+				case 'B':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 200 * quantity;
+					total += cost;
+					printf("%d Burger (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'F':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 50 * quantity;
+					total += cost;
+					printf("%d French fries (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'P':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 500 * quantity;
+					total += cost;
+					printf("%d Pizza (s) value %d pkr.\n", quantity, cost);
+					break;
+					
+				case 'S':
+					printf("Please provide quantity: ");
+					scanf("%d", &quantity);
+					cost = 150 * quantity;
+					total += cost;
+					printf("%d Sandwich (es) value %d pkr.\n", quantity, cost);
+					break;
+					
+				default:
+					printf("Invalid option.\n");
+					break;
+			} if (amount >= 3) {
+				printf("Enter the third snack you want to order: ");
+				scanf(" %c", &menu);
+				switch(menu) {
+					case 'B':
+						printf("Please provide quantity: ");
+						scanf("%d", &quantity);
+						cost = 200 * quantity;
+						total += cost;
+						printf("%d Burger (s) value %d pkr.\n", quantity, cost);
+						break;
+						
+					case 'F':
+						printf("Please provide quantity: ");
+						scanf("%d", &quantity);
+						cost = 50 * quantity;
+						total += cost;
+						printf("%d French fries (s) value %d pkr.\n", quantity, cost);
+						break;
+						
+					case 'P':
+						printf("Please provide quantity: ");
+						scanf("%d", &quantity);
+						cost = 500 * quantity;
+						total += cost;
+						printf("%d Pizza (s) value %d pkr.\n", quantity, cost);
+						break;
+						
+					case 'S':
+						printf("Please provide quantity: ");
+						scanf("%d", &quantity);
+						cost = 150 * quantity;
+						total += cost;
+						printf("%d Sandwich (es) value %d pkr.\n", quantity, cost);
+						break;
+						
+					default:
+						printf("Invalid option.\n");
+						break;
+				} if (amount == 4) {
+					printf("Enter the fourth snack you want to order: ");
+					scanf(" %c", &menu);
+					switch(menu) {
+						case 'B':
+							printf("Please provide quantity: ");
+							scanf("%d", &quantity);
+							cost = 200 * quantity;
+							total += cost;
+							printf("%d Burger (s) value %d pkr.\n", quantity, cost);
+							break;
+							
+						case 'F':
+							printf("Please provide quantity: ");
+							scanf("%d", &quantity);
+							cost = 50 * quantity;
+							total += cost;
+							printf("%d French fries (s) value %d pkr.\n", quantity, cost);
+							break;
+							
+						case 'P':
+							printf("Please provide quantity: ");
+							scanf("%d", &quantity);
+							cost = 500 * quantity;
+							total += cost;
+							printf("%d Pizza (s) value %d pkr.\n", quantity, cost);
+							break;
+							
+						case 'S':
+							printf("Please provide quantity: ");
+							scanf("%d", &quantity);
+							cost = 150 * quantity;
+							total += cost;
+							printf("%d Sandwich (es) value %d pkr.\n", quantity, cost);
+							break;
+							
+						default:
+							printf("Invalid option.\n");
+							break;
+					}
+					
+				}
+			}
+		} 
+		printf("TOTAL: %d PKR\n", total);
+		printf("Thank you for ordering!\n");
+		return 0;
+	}
+}

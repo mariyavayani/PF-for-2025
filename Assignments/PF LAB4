@@ -1,0 +1,156 @@
+//Q1
+#include <stdio.h>
+int main(void) {
+	char character;
+	printf("Enter a character: ");
+	scanf("%c", &character);
+	
+	if (character >= 'A' && character <= 'Z') {
+		printf("Your character is a capital alphabet.");
+		
+	} else if (character >= 'a' && character <= 'z') {
+		printf("Your character is a small alphabet.");
+	} else if (character >= 0 && character <=9) {
+		printf("Your character is  a digit");
+	} else {
+		printf("Your character is a special character");
+	}
+	return 0;
+}
+
+//Q2
+#include <stdio.h>
+int main(void) {
+	float actual_price, amount_saved, final_price;
+	printf("Enter the total amount: ");
+	scanf("%f", &actual_price);
+	if (actual_price < 1999) {
+		amount_saved = 0;
+		final_price = actual_price;
+		printf("You get a discount of %.1f on your purchase of %.1f. You have to pay: %.1f.\n", amount_saved, actual_price, final_price);	
+	} else if (actual_price >= 2000 && actual_price <= 4000) {
+		amount_saved = 0.2 * actual_price;
+		final_price = actual_price - amount_saved;
+		printf("You get a discount of %.1f on your purchase of %.1f. You have to pay: %.1f.\n", amount_saved, actual_price, final_price);
+	} else if (actual_price > 4000 && actual_price <= 6000) {
+		amount_saved = 0.3 * actual_price;
+		final_price = actual_price - amount_saved;
+		printf("You get a discount of %.1f on your purchase of %.1f. You have to pay: %.1f.\n", amount_saved, actual_price, final_price);
+		
+	} else {
+		amount_saved = 0.5 * actual_price;
+		final_price = actual_price - amount_saved;
+		printf("You get a discount of %.1f on your purchase of %.1f. You have to pay: %.1f.\n", amount_saved, actual_price, final_price);
+	}
+	return 0;
+}
+
+
+//Q3
+#include <stdio.h>
+#include <math.h>
+int main(void) {
+	int a,b,c;
+	float x1, x2, x, temp, im, discriminant;
+	printf("Enter the value of a: ");
+	scanf("%d", &a);
+	printf("Enter the value of b: ");
+	scanf("%d", &b);
+	printf("Enter the value of c: ");
+	scanf("%d", &c);
+	discriminant = pow(b,2) - (4*a*c);
+	temp = sqrt(discriminant);
+	if (discriminant > 0) {
+		printf("Your roots must be two unique real roots.\n");
+		x1 = ((-1*b) + temp) / (2.0*a);
+		x2 = ((-1*b) - temp) / (2.0*a);
+		printf("Your roots are: %.1f, %.1f", x1,x2);
+	}
+	else if (discriminant == 0) {
+		printf("You have one unique root.\n");
+		x = ((-1*b)/(2.0*a));
+		printf("Your root is: %.1f", x);
+	}
+	else {
+		printf("You have two imaginary roots.\n");
+		x = ((-1*b)/(2.0*a));
+		im = (sqrt(-1*discriminant)/(2.0*a));
+		printf("Your first imaginary root is: %.1f + %.1fi\n", x, im);
+		printf("Your second imaginary root is: %.1f - %.1fi\n", x, im);
+	}
+	return 0;
+
+}
+
+
+//Q4
+#include <stdio.h>
+int main(void) {
+	int num, last_digit, rest;
+	printf("Enter a number: ");
+	scanf("%d", &num);
+	
+	last_digit = num % 10;
+	rest = num/10;
+	num = rest - (last_digit * 2);
+	if (num == 7 || num == -7 || num == 0) {
+		printf("Your number is divisible by 7.");
+		return 0;
+	}
+	
+	last_digit = num % 10;
+	rest = num/10;
+	num = rest - (last_digit * 2);
+	if (num == 7 || num == -7 || num == 0) {
+		printf("Your number is divisible by 7.");
+		return 0;
+	}
+	
+	last_digit = num % 10;
+	rest = num/10;
+	num = rest - (last_digit * 2);
+	if (num == 7 || num == -7 || num == 0) {
+		printf("Your number is divisible by 7.");
+		return 0;
+	}
+	
+	last_digit = num % 10;
+	rest = num/10;
+	num = rest - (last_digit * 2);
+	if (num == 7 || num == -7 || num == 0) {
+		printf("Your number is divisible by 7.");
+		return 0;
+	}
+
+	printf("Your number is not divisible by 7.");
+	
+	return 0;
+}
+
+//Q5
+#include <stdio.h>
+int main(void) {
+	float calories, fat, fat_cal, cal_percent;
+	printf("Enter the number of calories in your food: ");
+	scanf("%f", &calories);
+	if (calories < 0) {
+		printf("Calories can't be less than zero.\n");
+		return 0;
+	}
+	printf("Enter the amount of fat grams in your food: ");
+	scanf("%f", &fat);
+	if (fat < 0) {
+		printf("Fat grams can't be less than zero.\n");
+		return 0;
+	}
+	fat_cal = fat * 9;
+	if (fat_cal > calories) {
+		printf("Either the calories or fat grams were incorrectly entered.\n");
+		return 0;
+	}
+	cal_percent = (fat_cal / calories)*100;
+	if (cal_percent < 30) {
+		printf("Your food is low in fat.\n");
+	}
+	printf("The percentage of calories that come from fat is: %.1f%% percent.", cal_percent);
+}
