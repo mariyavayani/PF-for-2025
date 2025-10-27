@@ -1,1 +1,74 @@
+Q1. Write pseudo-code and draw flowchart to get temperature in Fahrenheit as input and
+convert it to kelvin.
+PSEUDOCODE:
+BEGIN
+VARIABLES K, F
+OUTPUT “Enter temperature in Fahrenheit”
+INPUT F
+K = (F-32) * 5/9 + 273.15
+OUTPUT “The temperature in kelvin is”, K
+END
 
+
+Q2. Write pseudo-code and flowchart to calculate the area of a circle with radius taken as input.
+PSEUDOCODE:
+BEGIN
+VARIABLES area, radius
+OUTPUT “Enter radius.”
+INPUT radius
+area = 3.14 * radius * radius
+OUTPUT “Area of circle is”, area
+END
+
+
+Q3. Write pseudo-code and draw a flowchart to convert km/hour to miles/hour.
+PSEUDOCODE:
+BEGIN
+VARIABLES km_hr, miles_hr
+INPUT km_hr
+miles_hr = km_hr * 0.621
+OUTPUT miles_hr
+END
+
+
+Q4. Write a pseudo-code and draw a flowchart to take hours and minutes as input and calculate
+the total number of seconds.
+PSEUDOCODE:
+BEGIN
+VARIABLES hours, minutes, seconds
+OUTPUT “Enter number of hours and minutes.”
+INPUT hours, minutes
+seconds = (hours * 3600) + (minutes * 60)
+OUTPUT “The total number of seconds is”, seconds
+END
+
+
+Q5. PSEUDO-CODE
+BEGIN
+VARIABLES people, reams, report_pgs, copies, total_pgs
+OUTPUT “Enter the number of people and number of pages.”
+INPUT people, report_pgs
+copies = people + 5
+total_pgs = report_pgs * copies
+reams = INT(total_pgs / 500) + 1
+OUTPUT “The number of reams required for a meeting is”, reams
+END
+
+TESTING THE SOLUTION:
+report_pgs = 140
+people = 25
+copies = 25 + 5 = 30
+total_pgs = 140*30 = 4200
+reams = INT(4200/500) = 8.4 = 8 + 1 = 9
+“The number of reams required for a meeting is 9”.
+
+
+Q6. PSEUDO-CODE
+BEGIN
+VARIABLES height, width, req_length, length
+OUTPUT “Enter height and width.”
+INPUT height, width
+length = (5 * width) + (height * 2)
+req_length = length/12
+OUTPUT “The number of feet required is”, req_length
+END
