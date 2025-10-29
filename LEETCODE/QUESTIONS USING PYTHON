@@ -106,5 +106,43 @@ class Solution(object):
                 
         return results
 
+
+2956. Find common elements between two arrays
+class Solution(object):
+    def findIntersectionValues(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        answer1 = 0
+        answer2 = 0
+        
+        for x in nums1:
+            if x in nums2:
+                answer1+=1
+
+        for y in nums2:
+            if y in nums1:
+                answer2+=1
+
+
+        return [answer1,answer2]
+
+
+1662. Check if two string arrays are equivalent
+class Solution(object):
+    def arrayStringsAreEqual(self, word1, word2):
+        """
+        :type word1: List[str]
+        :type word2: List[str]
+        :rtype: bool
+        """
+        
+        if  ''.join(word1) == ''.join(word2):
+            return True
+        else:
+            return False
+
         
 
