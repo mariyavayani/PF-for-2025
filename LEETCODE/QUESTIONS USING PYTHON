@@ -144,5 +144,61 @@ class Solution(object):
         else:
             return False
 
+1480. Running sum of 1d array
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        runningSum=[]
+        sum=0
+
+        for i in range(len(nums)):
+            sum += nums[i]
+            runningSum.append(sum)
         
+        return runningSum
+
+
+2215. Find the difference of two arrays
+class Solution(object):
+    def findDifference(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[List[int]]
+        """
+        answer = [[],[]]
+        for i in nums1:
+            if i not in nums2:
+                if i not in answer[0]:
+                    answer[0].append(i)
+
+        
+        for j in nums2:
+            if j not in nums1:
+                if j not in answer[1]:
+                    answer[1].append(j)
+
+        return answer
+
+3069. Distribute elements into two arrays I
+class Solution(object):
+    def resultArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        arr1 = [nums[0]]
+        arr2 = [nums[1]]
+        
+        
+        for i in range(2,len(nums)):
+            if arr1[-1] > arr2[-1]:
+                arr1.append(nums[i])
+            else:
+                arr2.append(nums[i])
+        
+        return arr1 + arr2
 
