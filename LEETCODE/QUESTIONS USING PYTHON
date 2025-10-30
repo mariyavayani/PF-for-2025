@@ -227,3 +227,40 @@ class Solution(object):
         else:
             return False
 
+
+2729. Check if the number is fascinating
+class Solution(object):
+    def isFascinating(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        temp = str(n) + str(2*n) + str(3*n)
+        
+        flag = True
+        if len(temp) != 9:
+            return False
+
+        
+        if '0' in temp:
+            return False
+        if '1' not in temp:
+            flag = False
+        if '2' not in temp:
+            flag = False
+        if '3' not in temp:
+            flag = False
+        if '4' not in temp:
+            flag = False
+        if '5' not in temp:
+            flag = False
+        if '6' not in temp:
+            flag = False
+        if '7' not in temp:
+            flag = False
+        if '8' not in temp:
+            flag = False
+        if '9' not in temp:
+            flag = False
+
+        return flag
