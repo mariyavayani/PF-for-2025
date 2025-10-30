@@ -202,3 +202,28 @@ class Solution(object):
         
         return arr1 + arr2
 
+2319. Check if matrix is X-Matrix
+class Solution(object):
+    def checkXMatrix(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: bool
+        """
+        flag1 = True
+        flag2 = True
+        for i in range(len(grid)):
+            for j in range(len(grid)):
+                if i==j or i==len(grid)-1-j:
+                    if grid[i][j] == 0:
+                        flag1 = False
+
+
+                else if i!=j and j!=len(grid)-1-i:
+                    if grid[i][j] != 0:
+                        flag2 = False
+
+        if flag1 and flag2:
+            return True
+        else:
+            return False
+
