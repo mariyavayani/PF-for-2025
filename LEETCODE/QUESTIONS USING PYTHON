@@ -264,3 +264,53 @@ class Solution(object):
             flag = False
 
         return flag
+
+
+1232. Check if it is a straight line
+class Solution(object):
+    def checkStraightLine(self, coordinates):
+        """
+        :type coordinates: List[List[int]]
+        :rtype: bool
+        """
+        x0, y0 = coordinates[0]
+        x1, y1 = coordinates[1]
+
+        for i in range(2, len(coordinates)):
+            x, y = coordinates[i]
+            if (x - x0) * (y1 - y0) != (y - y0) * (x1 - x0):
+                return False
+
+        return True
+
+2124. Check if all a's appear before all b's
+class Solution(object):
+    def checkString(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        for i in range(len(s)-1):
+            if s[i] == 'b' and s[i+1] == 'a':
+                return False
+        return True
+
+3232. Find if digit game can be won
+class Solution(object):
+    def canAliceWin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        double_sum=0
+        single_sum=0
+        for i in range(len(nums)):
+            if nums[i]/10 >= 1:
+                double_sum+=nums[i]
+            else:
+                single_sum+=nums[i]
+
+        if double_sum != single_sum:
+            return True
+        else:
+            return False
