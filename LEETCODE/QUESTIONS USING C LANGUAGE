@@ -137,3 +137,34 @@ bool canAliceWin(int* nums, int numsSize) {
         return false;
     }
 }
+
+1880. Check if Word Equals Summation of Two Words
+bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
+    char s[50] = "";
+    char a[50] = "";
+    char t[50] = "";
+    int i=0, num1=0, num2=0,num3=0;
+    while (firstWord[i] != '\0') {
+        int digit = firstWord[i] - 'a';  
+        num1 = num1 * 10 + digit;
+        i++;
+    }
+    i = 0;
+    while (secondWord[i] != '\0') {
+        int digit = secondWord[i] - 'a';
+        num2 = num2 * 10 + digit;
+        i++;
+    }
+    i = 0;
+    while (targetWord[i] != '\0') {
+        int digit = targetWord[i] - 'a';
+        num3 = num3 * 10 + digit;
+        i++;
+    }
+    if (num1 + num2 == num3) {
+        return true;
+    } else {
+        return false;
+    }
+    return 0;
+}
