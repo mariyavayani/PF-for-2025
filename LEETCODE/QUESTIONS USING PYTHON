@@ -314,3 +314,92 @@ class Solution(object):
             return True
         else:
             return False
+
+
+1880. Check if word equals summation of two words
+class Solution(object):
+    def isSumEqual(self, firstWord, secondWord, targetWord):
+        """
+        :type firstWord: str
+        :type secondWord: str
+        :type targetWord: str
+        :rtype: bool
+        """
+        s=[]
+        a=[]
+        t=[]
+        for i in firstWord:
+            if i=='a':
+                s.append('0')
+            if i=='b':
+                s.append('1')
+            if i=='c':
+                s.append('2')
+            if i=='d':
+                s.append('3')
+            if i=='e':
+                s.append('4')
+            if i=='f':
+                s.append('5')
+            if i=='g':
+                s.append('6')
+            if i=='h':
+                s.append('7')
+            if i=='i':
+                s.append('8')
+            if i=='j':
+                s.append('9')
+
+        for i in secondWord:
+            if i=='a':
+                a.append('0')
+            if i=='b':
+                a.append('1')
+            if i=='c':
+                a.append('2')
+            if i=='d':
+                a.append('3')
+            if i=='e':
+                a.append('4')
+            if i=='f':
+                a.append('5')
+            if i=='g':
+                a.append('6')
+            if i=='h':
+                a.append('7')
+            if i=='i':
+                a.append('8')
+            if i=='j':
+                a.append('9')
+
+
+        for i in targetWord:
+            if i=='a':
+                t.append('0')
+            if i=='b':
+                t.append('1')
+            if i=='c':
+                t.append('2')
+            if i=='d':
+                t.append('3')
+            if i=='e':
+                t.append('4')
+            if i=='f':
+                t.append('5')
+            if i=='g':
+                t.append('6')
+            if i=='h':
+                t.append('7')
+            if i=='i':
+                t.append('8')
+            if i=='j':
+                t.append('9')
+
+       
+        s=''.join(s)
+        a=''.join(a)
+        t=''.join(t)
+        if int(a)+int(s)==int(t):
+            return True
+        else:
+            return False
