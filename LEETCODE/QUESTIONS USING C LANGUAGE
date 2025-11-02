@@ -168,3 +168,49 @@ bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
     }
     return 0;
 }
+
+
+69. Sqrt(x)
+int mySqrt(int x) {
+    return pow(x,0.5);
+}
+
+70. Climbing stairs
+int climbStairs(int n) {
+    int a = 0, b = 1, c;
+    for (int i = 1; i <= n; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
+}
+
+
+125.Valid palindrome
+bool isPalindrome(char* s) {
+    char a[500]="";
+    char r[500]="";
+
+    for (int i=0;i<strlen(s);i++) {
+        s[i] = tolower(s[i]);
+        if ((s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9')) {
+            char temp[2];
+            temp[0] = s[i];
+            temp[1] = '\0';
+            strcat(a, temp);
+        }
+    }
+    for (int i=strlen(a)-1;i>=0;i--) {
+        char temp[2];
+        temp[0] = a[i];
+        temp[1] = '\0';
+        strcat(r, temp);
+    }
+    if (strcmp(a,r)==0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
