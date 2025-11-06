@@ -214,3 +214,10 @@ bool isPalindrome(char* s) {
         return false;
     }
 }
+
+367. Valid Perfect Square
+bool isPerfectSquare(int num) {
+    int sqrtNum = (int)sqrt(num);
+    return sqrtNum * sqrtNum == num;
+}
+
