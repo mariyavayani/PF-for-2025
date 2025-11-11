@@ -71,6 +71,8 @@ int tie=0;
 	{
 		max=votes[i];
 	    win=i;
+		tie=0;
+		strcpy(Winner, candidate[win]);
 	}
 	else if(votes[i]==max && max>0)
 	{
@@ -88,5 +90,5 @@ int tie=0;
 	else
 	{
 	printf("\t\tWINNER\t\t\n");
-	printf("%s : %d votes\n\n\n\n",candidate[win],max); }
+	printf("%s : %d votes\n\n\n\n",Winner,max); }
 }
