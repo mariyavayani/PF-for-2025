@@ -1,0 +1,101 @@
+//Q2
+#include <stdio.h>
+void swapped(int *aPtr, int *bPtr, int *cPtr);
+int main() {
+	int a,b,c;
+	int *aPtr = &a;
+	int *bPtr = &b;
+	int *cPtr = &c;
+	printf("Enter a, b and c: ");
+	scanf("%d %d %d", aPtr,bPtr,cPtr);
+	swapped(aPtr,bPtr,cPtr);
+	printf("The new values of a, b and c are: %d %d %d", *aPtr, *bPtr, *cPtr);
+	return 0;
+}
+
+void swapped(int *aPtr, int *bPtr, int *cPtr) {
+	int temp=*bPtr;
+	*bPtr=*aPtr;
+	*aPtr=*cPtr;
+	*cPtr=temp;
+}
+
+//Q3
+#include <stdio.h>
+int main() {
+	int arr[]={10,20,30,40,50};
+	int sum;
+	for (int i=0;i<5;i++) {
+		sum+=*(arr+i);
+	}
+	printf("Sum of array: %d", sum);
+	return 0;
+}
+
+//Q4
+#include <stdio.h>
+int main() {
+	float arr[20] = {1.2,2.2,3.3,5.6,0.3,1.4,2.4,5.4,6.6,7.7,7.6,9.8,4.9,5.5,0.7,6.7,0.1,2.0,6.2,6.1};
+	float h=*arr;
+	float sh=-1;
+	for (int i=0;i<20;i++) {
+		if (*(arr+i)>h) {
+			sh=h;
+			h=*(arr+i);
+		}
+		else if (*(arr+i)<h && *(arr+i) > sh) {
+			sh=*(arr+i);
+		}
+	}
+	printf("Second highest: %f", sh);
+	return 0;
+}
+
+
+//Q5
+#include <stdio.h>
+void SortFunction(int *arr, int *size, int order);
+int main() {
+	int size;
+	printf("Enter array size: ");
+	scanf("%d", &size);
+	int arr[size];
+	printf("Enter array elements: \n");
+	for (int i=0;i<size;i++) {
+		scanf("%d", &*(arr+i));
+	}
+	int order;
+	printf("Enter order in which you want to sort the array: (1 for ascending and 2 for descending)");
+	scanf("%d", &order);
+	SortFunction(arr, &size, order);
+	return 0;
+}
+
+void SortFunction(int *arr, int *size, int order) {
+	int temp;
+	for (int i=0;i<*size-1;i++) {
+		for (int j=0;j<*size-1;j++) {
+			if ((order == 1 && *(arr + j) > *(arr + j + 1)) || (order == 2 && *(arr + j) < *(arr + j + 1))) {
+				temp=*(arr+j);
+				*(arr+j) = *(arr+j+1);
+				*(arr+j+1) = temp;
+			}
+		}
+	}
+	for (int i=0;i<*size;i++) {
+		printf("%d ", *(arr+i));
+	}
+}
+
+//Q6
+#include <stdio.h>
+int main() {
+	int arr[10];
+	for (int i=0;i<10;i++) {
+		arr[i] = i*i;
+	}
+	for (int i=0;i<10;i++) {
+		printf("%d ", *(arr+i));
+	}
+	return 0;
+}
