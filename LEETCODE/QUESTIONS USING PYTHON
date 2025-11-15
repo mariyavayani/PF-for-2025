@@ -538,3 +538,66 @@ class Solution(object):
             else:
                 return False
         return True
+
+
+414. Third Maximum Number
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        first = second = third = None
+        for num in nums:
+            if num == first or num == second or num == third:
+                continue
+            if first is None or num > first:
+                third = second
+                second = first
+                first = num
+            elif second is None or num > second:
+                third = second
+                second = num
+            elif third is None or num > third:
+                third = num
+        return third if third is not None else first
+
+
+507. Perfect Number
+class Solution(object):
+    def checkPerfectNumber(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        total=0
+        for i in range(1,(num/2)+1):
+            if num%i==0:
+                total+=i
+
+        if total==num:
+            return True
+        else:
+            return False
+
+
+520. Detect Capital
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        if word.upper()==word:
+            return True
+
+        if word.lower()==word:
+            return True
+
+        if word[0].isupper():
+            for i in range(1, len(word)):
+                if not word[i].islower():
+                    return False
+            return True   
+        
+        return False
