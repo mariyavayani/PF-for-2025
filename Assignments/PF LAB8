@@ -1,0 +1,120 @@
+//Q1
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char first_name[50];
+	char last_name[50];
+	char full_name[50];
+	printf("Enter your first name: ");
+	gets(first_name);
+	printf("Enter your last name: ");
+	gets(last_name);
+	
+	int len1 = strlen(first_name);
+	for (int i=0;i<len1;i++) {
+		full_name[i] = first_name[i];
+	}
+	full_name[len1] = ' ';
+	int len2 = strlen(first_name) + strlen(last_name);
+	for (int i=0;i<=len2;i++) {
+		full_name[len1+i+1] = last_name[i];
+	}
+	
+	int len3 = strlen(full_name);
+	for (int i=0;i<len3; i++) {
+		printf("%c", full_name[i]);
+	}
+	printf("\n");
+	for (int i=len3;i>=0;i--) {
+		printf("%c", full_name[i]);
+	}
+}
+
+
+//Q2
+#include <stdio.h>
+int main() {
+	char name[100];
+	char courses[200];
+	char name_courses[300];
+	printf("Enter your ful name: ");
+	gets(name);
+	printf("Enter any two courses separated using a space: ");
+	gets(courses);
+	int len1=strlen(name);
+	for (int i=0;i<len1;i++) {
+		name_courses[i] = name[i];
+	}
+	name_courses[len1] = ' ';
+	int len2 = strlen(name) + strlen(courses);
+	for (int i=0;i<len2;i++) {
+		name_courses[len1+i+1] = courses[i];
+	}
+	int len3=strlen(name_courses);
+	for (int i=0;i<len3;i++) {
+		printf("%c", name_courses[i]);
+	}
+	
+	int maxcount = 0;
+	char maxchar = '\0';
+	for (int i=0;i<len3;i++) {
+		if (name_courses[i] == ' ') {
+			continue;
+		}
+		int count = 0;
+        for (int j = i; j < len3; j++) {
+            if (name_courses[i] == name_courses[j]) {
+                count+=1;
+            }
+        }
+        if (count > maxcount) {
+            maxcount = count;
+            maxchar = name_courses[i];
+        }
+	}
+	printf("\nMost frequent character: '%c'\n", maxchar);
+    printf("It appears %d times.\n", maxcount);
+	
+}
+
+//Q3
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char s1[50];
+	char s2[50];
+	int flag = 0;
+	printf("Enter s1: ");
+	gets(s1);
+	printf("Enter s2: ");
+	gets(s2);
+	
+	int len1 = strlen(s1);
+    int len2 = strlen(s2);
+    int len = (len1 > len2) ? len1 : len2;
+	for (int i=0;i<len;i++) {
+		if (s1[i]==s2[i]) {
+			continue;
+		}
+		else if (s1[i] > s2[i]) {
+			flag = 1;
+			break;
+		}
+		else {
+			flag = -1;
+			break;
+		}
+	}
+	
+	if (flag == 0) {
+		printf("Both strings are equal.\n");
+	}
+	else if (flag == 1) {
+		printf("String 1 is greater than string 2.\n");
+	}
+	else {
+		printf("String 2 is greater than string 1.\n");
+	}
+}
