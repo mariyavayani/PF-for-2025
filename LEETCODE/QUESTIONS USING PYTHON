@@ -601,3 +601,105 @@ class Solution(object):
             return True   
         
         return False
+
+
+728. Self Dividing Numbers
+class Solution(object):
+    def selfDividingNumbers(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: List[int]
+        """
+        ans = []
+        for i in range(left, right+1):
+            num=i
+            valid =True
+            while num>0:
+                digit=num%10
+                if digit==0 or i%digit!=0:
+                    valid=False
+                    break
+                num=num//10
+            if valid:
+                ans.append(i)
+
+1252. Cells with odd values in a matrix
+class Solution:
+    def oddCells(self, m, n, indices):
+        row_data = [0]*m
+        col_data = [0]*n
+        
+        for tup in indices:
+            row_data[tup[0]] = row_data[tup[0]] + 1
+            col_data[tup[1]] = col_data[tup[1]] + 1
+        
+        odd_count = 0 
+        for rowp in range(m):
+            for colp in range(n):
+                val = row_data[rowp] + col_data[colp]
+                if val % 2 != 0:
+                    odd_count+=1
+        
+        return odd_count
+
+1281. Subtract the Product and Sum of Digits of an Integer
+class Solution(object):
+    def subtractProductAndSum(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        product = 1
+        sum = 0
+        while n>0:
+            digit=n%10
+            product*=digit
+            sum+=digit
+            n=n/10
+
+        return product-sum
+
+268. Missing Number
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums.sort()
+        for i in range(len(nums)):
+            if nums[i] != i:
+                return i
+        return len(nums)
+
+
+819. Most Common Word
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        paragraph = paragraph.lower()
+        for ch in "!?',;.":
+            paragraph = paragraph.replace(ch, " ")
+        words = paragraph.split()
+        freq = {}
+        for w in words:
+            if w not in banned:          
+                if w in freq:
+                    freq[w] += 1
+                else:
+                    freq[w] = 1
+        max_word = ""
+        max_count = 0
+
+        for word in freq:
+            if freq[word] > max_count:
+                max_count = freq[word]
+                max_word = word
+
+        return max_word
+
