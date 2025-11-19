@@ -5,7 +5,6 @@
 int* runningSum(int* nums, int numsSize, int* returnSize) {
     
     int sum=0;
-    int* runningSum = (int*)malloc(numsSize * sizeof(int));
     for (int i=0;i<numsSize;i++) {
         sum+=nums[i];
         runningSum[i]=sum;
@@ -16,8 +15,6 @@ int* runningSum(int* nums, int numsSize, int* returnSize) {
 
 3069. Distribute elements into two arrays I
 int* resultArray(int* nums, int numsSize, int* returnSize) {
-    int* arr1 = (int*)malloc(numsSize * sizeof(int));
-    int* arr2 = (int*)malloc(numsSize * sizeof(int));
     int size1 = 0, size2 = 0;
 
     arr1[size1++] = nums[0];
@@ -30,7 +27,6 @@ int* resultArray(int* nums, int numsSize, int* returnSize) {
             arr2[size2++] = nums[i];
     }
 
-    int* result = (int*)malloc(numsSize * sizeof(int));
     int index = 0;
 
     for (int i = 0; i < size1; i++)
