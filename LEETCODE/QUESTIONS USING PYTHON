@@ -703,3 +703,31 @@ class Solution(object):
 
         return max_word
 
+28.Find the index of first occurence in a string
+class Solution(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        for i in range(len(haystack)):
+            if haystack[i:i+len(needle)]==needle:
+                return i
+        return -1
+
+121.Best time to buy and sell stock
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        least=prices[0]
+        profit=0
+        for i in range(len(prices)):
+            if prices[i]<least:
+                least=prices[i]
+            if prices[i]-least > profit:
+                profit=prices[i]-least
+        return profit
