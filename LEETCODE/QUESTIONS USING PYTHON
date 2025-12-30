@@ -761,3 +761,25 @@ class Solution(object):
             s[i],s[j]=s[j],s[i]
             i+=1
             j-=1
+
+643. Maximum average subarray I
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        sum=0
+        for i in range(k):
+            sum+=nums[i]
+
+        Max=sum
+        for i in range(k,len(nums)):
+            sum+=nums[i]
+            sum-=nums[i-k]
+            if sum>Max:
+                Max=sum
+        
+        Max=Max/float(k)
+        return Max
